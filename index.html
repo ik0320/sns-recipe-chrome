@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNSレシピ抽出 プライバシーポリシー</title>
+<style>
+  :root { --bg:#fff; --fg:#1f2328; --muted:#6b7280; --line:#e5e7eb; --accent:#d9480f; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#1c1c1e; --fg:#ececec; --muted:#9ca3af; --line:#333; --accent:#ff8a3d; } }
+  body { margin:0; background:var(--bg); color:var(--fg);
+    font:16px/1.8 system-ui, -apple-system, "Hiragino Sans", "Yu Gothic UI", sans-serif; }
+  main { max-width:720px; margin:0 auto; padding:40px 16px 64px; }
+  h1 { font-size:1.6rem; margin:0 0 4px; }
+  h2 { font-size:1.15rem; margin:2em 0 .4em; padding-bottom:4px; border-bottom:1px solid var(--line); }
+  .date { color:var(--muted); font-size:.9rem; }
+  table { border-collapse:collapse; width:100%; font-size:.95rem; }
+  th, td { border:1px solid var(--line); padding:8px 10px; text-align:left; vertical-align:top; }
+  th { width:30%; }
+  a { color:var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <h1>SNSレシピ抽出 プライバシーポリシー</h1>
+  <p class="date">制定日：2026年10月17日（同日改定：Gemini対応、チャット送信方式の追加、料理写真の保存、動画サムネイルの取得）</p>
+
+  <p>本ポリシーは、Chrome拡張機能「SNSレシピ抽出」（以下「本拡張機能」）における利用者情報の取り扱いについて定めるものです。</p>
+
+  <h2>1. 取り扱う情報</h2>
+  <table>
+    <tr><th>APIキー</th><td>利用者が設定画面で入力したAPIキー（Anthropic APIキー、Google Gemini APIキー）。利用者のブラウザ内（chrome.storage.local）にのみ保存されます。</td></tr>
+    <tr><th>ページの内容</th><td>利用者が「レシピを抽出」ボタンを押したときに限り、表示中のタブから取得する投稿本文（キャプション）、画像の代替テキスト、ページURL。</td></tr>
+    <tr><th>スクリーンショット</th><td>「画面も解析する」がオンの場合（API方式のみ）に限り、抽出ボタンを押した時点の表示中タブの画像。</td></tr>
+    <tr><th>AIの回答</th><td>「チャットに送る」方式で、利用者が取り込み欄に貼り付けたAIの回答。</td></tr>
+    <tr><th>手動入力テキスト</th><td>利用者が貼り付け欄に入力したテキスト。</td></tr>
+    <tr><th>料理の写真</th><td>「料理の写真も保存する」がオンの場合に限り、抽出ボタンを押した時点で画面に表示されている投稿画像の部分を切り出した画像。動画の投稿では、投稿のサムネイル画像（表示中のページ、投稿ページ、またはInstagramの画像サーバーから読み込み）を使用します。保存したレシピとともに利用者のブラウザ内にのみ保存され、外部へは送信されません。</td></tr>
+    <tr><th>保存したレシピ</th><td>抽出結果のうち、利用者が保存したもの（料理の写真を含む）。利用者のブラウザ内（chrome.storage.local）にのみ保存されます。</td></tr>
+  </table>
+  <p>本拡張機能は、閲覧履歴の収集、バックグラウンドでのページ読み取り、利用状況の解析（アナリティクス）を行いません。</p>
+
+  <h2>2. 利用目的</h2>
+  <p>取得した情報は、レシピ情報を抽出・表示・保存するためにのみ使用します。</p>
+
+  <h2>3. 第三者への提供</h2>
+  <p>本拡張機能には、利用者が設定で選ぶ2つの方式があります。</p>
+  <p><strong>「チャットに送る」方式</strong>：本拡張機能は投稿の内容を含むプロンプトをクリップボードにコピーし、選択したチャットサービス（claude.ai または gemini.google.com）の新しいタブを開くだけです。本拡張機能自身はデータを外部へ送信しません。チャットへの貼り付けと送信は利用者自身が行い、送信内容の取り扱いは各サービスの規約・プライバシーポリシーに従います。</p>
+  <p><strong>「APIで自動解析」方式</strong>：抽出処理のため、上記のページの内容・スクリーンショット・手動入力テキストを、利用者が設定画面で選択したAIサービスへ、利用者自身のAPIキーを用いて送信します。送信先は選択したサービスのいずれか一方のみです。</p>
+  <ul>
+    <li>Claude を選択した場合：Anthropic, PBC のAPI（api.anthropic.com）。データの取り扱いは <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Anthropicのプライバシーポリシー</a> および同社の利用規約に従います。</li>
+    <li>Gemini を選択した場合：Google LLC の Gemini API（generativelanguage.googleapis.com）。データの取り扱いは <a href="https://ai.google.dev/gemini-api/terms" target="_blank" rel="noopener">Gemini API 追加利用規約</a> および <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Googleのプライバシーポリシー</a> に従います。無料枠で利用する場合、送信内容がGoogleのサービス改善に利用されることがあります。</li>
+  </ul>
+  <p>上記以外の第三者に情報を提供・販売することはありません。開発者が運営するサーバーは存在せず、開発者が利用者の情報を受け取ることもありません。</p>
+
+  <h2>4. 情報の削除</h2>
+  <p>保存したレシピは本拡張機能の「保存済み」タブから個別に削除できます。本拡張機能をChromeから削除すると、APIキーと保存したレシピを含むすべてのデータが削除されます。</p>
+
+  <h2>5. Chromeウェブストアのユーザーデータポリシーへの準拠</h2>
+  <p>本拡張機能によるユーザーデータの使用は、制限付き使用（Limited Use）の要件を含む <a href="https://developer.chrome.com/docs/webstore/program-policies/" target="_blank" rel="noopener">Chrome Web Store User Data Policy</a> に準拠します。</p>
+
+  <h2>6. 改定</h2>
+  <p>本ポリシーを改定した場合は、本ページで公表します。</p>
+
+  <p>※ 本拡張機能は Instagram および Meta Platforms, Inc. とは関係ありません。</p>
+</main>
+</body>
+</html>
